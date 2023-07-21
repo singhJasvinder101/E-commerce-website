@@ -1,0 +1,52 @@
+{
+  "name": {
+    "type": "String"
+  },
+  "description": {
+    "type": "String"
+  },
+  "category": {
+    "type": "String"
+  },
+  "count": {
+    "type": "Number"
+  },
+  "price": {
+    "type": "Number"
+  },
+  "rating": {
+    "type": "Number"
+  },
+  "reviewsNumber": {
+    "type": "Number"
+  },
+  "sales": {
+    "type": "Number",
+    "default": 0
+  },
+  "attrs": [
+    {
+      "key": {
+        "type": "String"
+      },
+      "value": {
+        "type": "String"
+      }
+    }
+  ],
+  "images": [
+    {
+      "path": {
+        "type": "String"
+      }
+    }
+  ],
+  "reviews": [
+    {
+      "type": "String"
+    }
+  ],
+  "time": {
+    "timestamps": true
+  }
+}
