@@ -46,6 +46,7 @@ function App() {
         {/* for regular users on website */}
         <Route element={<RouteWithUserChatComponent />}>
           <Route path="/" element={<HomePage />} />
+          <Route path="/product-list/category/:categoryName" element={<ProductListPage />} />
           <Route path="/product-list" element={<ProductListPage />} />
           <Route path="/product-details/:id" element={<ProductDetailsPage />} />
           <Route path="/cart" element={<CartPage />} />
@@ -66,7 +67,7 @@ function App() {
         {/* Admin protected pages */}
         <Route element={<ProtectedRoutesComponent admin={true} />}>
           <Route path="/admin/user" element={<AdminUsersPage />} />
-          <Route path="/admin/edit-user" element={<AdminEditUserPage />} />
+          <Route path="/admin/edit-user/:id" element={<AdminEditUserPage />} />
           <Route path="/admin/products" element={<AdminProductsPage />} />
           <Route path="/admin/create-new-product" element={<AdminCreateProductPage />} />
           <Route path="/admin/edit-product/:id" element={<AdminEditProductPage />} />

@@ -1,23 +1,10 @@
-import React from 'react'
-import ProductCorouselComponent from '../components/ProductCorouselComponent'
-import CategoryCardComponent from '../components/CategoryCardComponent'
+import HomePageComponent from './components/HomePageComponent'
+import { useSelector } from 'react-redux'
 
 const HomePage = () => {
-  const categories = [
-    "SHOES","WATCHES", "TABLETS", "MONITORS", "PRINTERS", "SOFTWARE", "CAMERAS", "BOO,KS"
-  ]
-  return (
-    <>
-      <ProductCorouselComponent />
-      <div className="d-flex flex-wrap justify-content-around">
-      {
-        categories.map((item, idx) => (
-          <CategoryCardComponent key={idx} category={item} idx={idx}/>
-        ))
-      }
-      </div>
-    </>
-  )
+  const categories  = useSelector(state => state.allCategories.categories)
+
+  return <HomePageComponent categories={categories}/>
 }
 
 export default HomePage

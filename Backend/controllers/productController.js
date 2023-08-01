@@ -244,6 +244,20 @@ const adminUpdateProduct = async (req, res, next) => {
 };
 
 const adminUpload = async (req, res, next) => {
+    if (req.query.cloudinary === "true") {
+        try {
+            let product = await Product.findById(req.query.productId).orFail();
+            // console.log(req.body, product)
+            // req.body.url is used in the adminUpload function to access the image URL provided by Cloudinary
+            product.images.push({ path: req.body.url });
+            await product.save();
+            return res.send("Product image added successfully.");
+        } catch (error) {
+            return next(error);
+        }
+    }
+
+    // bcoz this code responsible for storing the images in the database
     try {
         if (!req.files || !req.files.images) {
             return res.status(400).send("No files were uploaded.");
@@ -296,8 +310,20 @@ const adminUpload = async (req, res, next) => {
 };
 
 const adminDeleteProductImage = async (req, res, next) => {
+    const imagePath = decodeURIComponent(req.params.imagePath)
+    if(req.query.cloudinary === "true") {
+        try {
+            await Product.findOneAndUpdate(
+                { _id: req.params.productId },     //since images is array so pull
+                { $pull: { images: { path: imagePath } } }
+            ).orFail()
+            return res.end()
+        } catch (error) {
+            next(error)
+        }
+        return // bcoz if this statement true then don't move to next code
+    }
     try {
-        const imagePath = decodeURIComponent(req.params.imagePath)
         console.log(imagePath)
 
         const path = require("path")

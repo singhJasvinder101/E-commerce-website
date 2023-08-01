@@ -53,7 +53,7 @@ const ProductForListComponent = ({ productId, name, description, price, images, 
                                 <Rating readonly initialValue={rating} className='mb-1' size={20}/>
                                 <span className="fw-bold text-primary-emphasis mx-1">{rating}</span>
                                 <span>({reviewsNumber})</span>
-                                <Link to="product-list" style={{ marginLeft: '3rem' }} className='text-decoration-none text-dark'>category <span><img className='goto' src='images/external.png'></img></span></Link>
+                                {/* <Link to="product-list" style={{ marginLeft: '3rem' }} className='text-decoration-none text-dark'>category <span><img className='goto' src='images/external.png'></img></span></Link> */}
                             </div>
                         </div>
                         <div className='container d-flex justify-content-left my-1'>

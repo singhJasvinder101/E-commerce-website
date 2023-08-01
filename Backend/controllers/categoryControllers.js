@@ -14,6 +14,8 @@ const getCategories = async (req, res, next) => {
 const newCategory = async (req, res, next) => {
   try {
     const { category } = req.body
+    // i have extracted the value of category from the object {category: "shoes"}
+    // console.log(category)   
     if (!category) {
       // throw new Error("category input is requiered in the body object")
       res.status(400).send("category input in body is required")
@@ -51,7 +53,7 @@ const deleteCategory = async (req, res, next) => {
 const saveAttrs = async (req, res, next) => {
   const { key, val, categoryChoosen } = req.body
   if (!key || !val || !categoryChoosen) {
-    return res.status(400).send("key value and choosen category is required")
+    return res.status(400).send("key value and choosen category is required" + key + val + categoryChoosen)
   }
   try {
     // bcoz our category will same but companies different laptops/dell or /asus

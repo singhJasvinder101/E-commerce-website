@@ -105,17 +105,6 @@ const HeaderComponent = () => {
                                     </button>
                                 </div>
                             </li>
-                            {/* 
-                            </li>
-                            <li className="nav-item">
-                                <SearchContainer style={{ marginTop: '0.25rem' }}>
-                                    <input
-                                        type="text"
-                                        style={{ height: '2.2rem' }}
-                                        placeholder="Search"
-                                        className="form-control" />
-                                     <BsSearch size={18} /> 
-                                </SearchContainer> */}
                             {userInfo.isAdmin ? (
                                 <li className="nav-item">
                                     <Link
@@ -130,7 +119,7 @@ const HeaderComponent = () => {
                                     </Link>
                                 </li>
                             ) : userInfo.name && !userInfo.isAdmin ? (
-                                <li className="nav-item">
+                                <li className="nav-item d-flex align-items-center">
                                     <Dropdown>
                                         <Dropdown.Toggle className='bg-transparent' id="user-dropdown" style={{ fontSize: '1rem', borderRadius: '8rem', color: "#ffffff", borderColor: "#ffffff" }}>
                                             <i className="fa-regular fa-user" style={{ color: "#ffffff" }}></i>

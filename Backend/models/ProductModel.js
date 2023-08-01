@@ -36,10 +36,9 @@ const productSchema = new Schema({
         type: Number,
         default: 0,
     },
-    attrs: [
-        { key: { type: String }, value: { type: String } }
+    attrs: [{ key: { type: String }, value: { type: String } 
         //[{key:'çolor', value: 'red'}, {key:"size", value:"1Tb"}]
-    ],
+    }],
     images: [imageSchema],
     reviews: [{
         type: mongoose.Schema.Types.ObjectId, ref: Review
